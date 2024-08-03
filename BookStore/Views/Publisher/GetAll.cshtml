@@ -1,0 +1,24 @@
+﻿@model IEnumerable<BookStore.Models.Domain.Publisher>
+<h2 class="fst-italic fw-bold text-center mt-2">List Of Publisher</h2>
+
+    <a href="/Publisher/Add" class="btn btn-dark">Add More</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Publisher Name</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+        <tr>
+            <td>@item.PublisherName</td>
+            <td>
+                    <a class="btn btn-outline-success" href="/Publisher/Update?id=@item.Id"><i class="bi bi-pen"></i></a>
+                    <a class="btn btn-outline-danger" onclick="return window.confirm('Are you sure?')" href="/Publisher/Delete?id=@item.Id"><i class="bi bi-trash"></i></a>
+              </td>
+        </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,64 @@
+﻿@model BookStore.Models.Domain.Book
+
+<div class="container pt-5">
+    <div class="row shadow rounded">
+        <div class="col-md-6">
+            <h1 class="fst-italic">Update Book</h1>
+            <form asp-action="Update" method="post">
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <label asp-for="Title">Title</label>
+                    <input type="text" class="form-control" asp-for="Title" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Title">Genre</label>
+                    <select asp-for="GenreId" asp-items="@Model.GenreList" class="form-control">
+                        <option value="">--Select--</option>
+                    </select>
+                    <span asp-validation-for="GenreId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Isbn">Isbn</label>
+                    <input type="text" class="form-control" asp-for="Isbn" />
+                    <span asp-validation-for="Isbn" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TotalPages">TotalPages</label>
+                    <input type="number" class="form-control" asp-for="TotalPages" />
+                    <span asp-validation-for="TotalPages" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Title">Author</label>
+                    <select asp-for="AuthorId" asp-items="@Model.AuthorList" class="form-control">
+                        <option value="">--Select--</option>
+                    </select>
+                    <span asp-validation-for="AuthorId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Title">Publisher</label>
+                    <select asp-for="PublisherId" asp-items="@Model.PublisherList" class="form-control">
+                        <option value="">--Select--</option>
+                    </select>
+                    <span asp-validation-for="PublisherId" class="text-danger"></span>
+                </div>
+                @if (TempData["msg"] != null)
+                {
+                    <div class="alert alert-info mt-3">
+                        @TempData["msg"]
+                    </div>
+                }
+                <div class="row mt-3">
+                    <div class="col-sm-4 d-grid">
+                        <button type="submit" class="btn btn-outline-primary"><i class="bi bi-save"></i>Save</button>
+                    </div>
+                    <div class="col-sm-4 d-grid">
+                        <a href="/Books/GetAll" class="btn btn-outline-dark"><i class="bi-list"></i>List</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+

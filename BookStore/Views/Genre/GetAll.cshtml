@@ -1,0 +1,24 @@
+﻿@model IEnumerable<BookStore.Models.Domain.Genres>
+<h2 class="fst-italic fw-bold text-center mt-2">List Of Genres</h2>
+
+    <a href="/Genre/Add" class="btn btn-dark">Add More</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+        <tr>
+            <td>@item.Name</td>
+            <td>
+                    <a class="btn btn-outline-success" href="/Genre/Update?id=@item.Id"><i class="bi bi-pen"></i></a>
+                    <a class="btn btn-outline-danger" onclick="return window.confirm('Are you sure?')" href="/Genre/Delete?id=@item.Id"><i class="bi bi-trash"></i></a>
+              </td>
+        </tr>
+        }
+    </tbody>
+</table>

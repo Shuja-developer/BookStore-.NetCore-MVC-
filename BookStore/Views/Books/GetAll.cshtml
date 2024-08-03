@@ -1,0 +1,36 @@
+﻿@model IEnumerable<BookStore.Models.Domain.Book>
+<h2 class="fst-italic fw-bold text-center mt-2">List Of Books</h2>
+
+<a href="/Books/Add" class="btn btn-dark">Add More</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Genre</th>
+            <th>Isbn</th>
+            <th>Total pages</th>
+            <th>Author</th>
+            <th>Publisher</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Title</td>
+                <td>@item.GenreName</td>
+                <td>@item.Isbn</td>
+                <td>@item.TotalPages</td>
+                <td>@item.AuthorName</td>
+                <td>@item.PublisherName</td>
+                <td>
+                    <a class="btn btn-outline-success" href="/Books/Update?id=@item.Id"><i class="bi bi-pen"></i></a>
+                    <a class="btn btn-outline-danger" onclick="return window.confirm('Are you sure?')" href="/Books/Delete?id=@item.Id"><i class="bi bi-trash"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

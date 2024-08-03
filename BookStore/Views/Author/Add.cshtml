@@ -1,0 +1,32 @@
+﻿@model BookStore.Models.Domain.Author
+
+<div class="container pt-5">
+    <div class="row shadow rounded">
+        <div class="col-md-6">
+            <h1 class="fst-italic">Add Author</h1>
+            <form asp-action="Add" method="post">
+                <div class="form-group">
+                    <label asp-for="AuthorName">Author Name</label>
+                    <input type="text" class="form-control" asp-for="AuthorName" />
+                    <span asp-validation-for="AuthorName" class="text-danger"></span>
+                </div>
+                @if (TempData["msg"] != null)
+                {
+                    <div class="alert alert-info mt-3">
+                        @TempData["msg"]
+                    </div>
+                }
+                <div class="row mt-3">
+                    <div class="col-sm-4 d-grid">
+                        <button type="submit" class="btn btn-outline-primary"><i class="bi bi-save"></i>Save</button>
+                    </div>
+                    <div class="col-sm-4 d-grid">
+                        <a href="/Author/GetAll" class="btn btn-outline-dark"><i class="bi-list"></i>List</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
